@@ -10,11 +10,13 @@ import axios from "axios";
 import Slider from "react-slick";
 
 const Movie = () => {
+    
     const { id } = useParams();
     const { movie } = useContext(MovieContext);
     const [cast, setCast] = useState([]);
     const [similarMovies, setSimilarMovies] = useState([]);
     const [recommended, setRecommended] = useState([]);
+    
     useEffect(() => {
         const requestCast = async () => {
             const getCast = await axios.get(`movie/${id}/credits`);
@@ -45,7 +47,7 @@ const Movie = () => {
         slidesToShow: 3,
         speed: 500,
         slidesToScroll: 3,
-        InitialSlide: 0,
+        InitialSlide: 1,
     responsive: [
         {
             breakpoints: 1024,
@@ -60,7 +62,7 @@ const Movie = () => {
             settings: {
                 slidesToShow:2,
                 slidesToScroll: 2,
-                InitialSlide: 2
+                InitialSlide: 1,
             },
         },
         {
@@ -79,7 +81,7 @@ const Movie = () => {
         speed: 500,
         slidesToShow: 6,
         slidesToScroll: 4,
-        initialSlide: 0,
+        initialSlide: 1,
     responsive: [
         {
             breakpoint: 1024,
@@ -94,7 +96,7 @@ const Movie = () => {
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 2,
-                initialSlide: 2,
+                initialSlide: 1,
             },
         },
         {
